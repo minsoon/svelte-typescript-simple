@@ -1,11 +1,11 @@
-<script>
-	export let name;
+<script lang="ts">
+	const text: string = 'svelte-typescript-rollup';
 </script>
 
 <style>
 	h1 {
-		color: purple;
+		text-align: center;
 	}
 </style>
 
-<h1>Hello {name}!</h1>
+<h1>{text}</h1>

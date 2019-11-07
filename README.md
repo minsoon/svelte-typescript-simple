@@ -1,71 +1,44 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
----
+# svelte-typescript
+svelte-typescript 개발 도입 문서
 
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
+## Sverte 설치
 ```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+$ npx degit sveltejs/template my-svelte-project
+$ cd my-svelte-project
+$ npm i
+$ npm run dev
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
+# package 추가 문서
+## TypeScript
+```
+$ npm i --save-dev rollup-plugin-typescript2
+$ npm i --save-dev typescript
+$ touch tsconfig.json
 ```
 
-...then start [Rollup](https://rollupjs.org):
+### roullup.config.js 설정
+```
+import typescript from "rollup-plugin-typescript2";
+import typescriptCompiler from "typescript";
 
-```bash
-npm run dev
+export default {
+    ...
+	plugins: [
+		typescript({ typescript: typescriptCompiler })
+	]
+    ...
+};
+
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
+## Svelte Preprocess
+A Svelte preprocessor with support for: PostCSS, SCSS, Less, Stylus, Coffeescript, TypeScript and Pug.
+```
+$ npm i --save-dev svelte-preprocess
 ```
 
-Then, from within your project folder:
-
-```bash
-cd public
-now
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public
-```
+    // "rollup-plugin-bundle-html": "^0.2.1",
+    // "rollup-plugin-css-porter": "^1.0.2",
+    // "rollup-plugin-serve": "^1.0.1"
