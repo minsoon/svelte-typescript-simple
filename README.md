@@ -50,5 +50,5 @@ SPA와 SSR 참고 문서 :
 $ npm i --save svelte-spa-router
 ```
 
-## TODOLIIST
+## TODOLIST
 - router ts Error Fixed
