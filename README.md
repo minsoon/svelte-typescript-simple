@@ -34,11 +34,21 @@ export default {
 ```
 
 ## Svelte Preprocess
-A Svelte preprocessor with support for: PostCSS, SCSS, Less, Stylus, Coffeescript, TypeScript and Pug.
+A [Svelte](https://svelte.dev/) preprocessor with support for: PostCSS, SCSS, Less, Stylus, Coffeescript, TypeScript and Pug.
 ```
 $ npm i --save-dev svelte-preprocess
 ```
 
-    // "rollup-plugin-bundle-html": "^0.2.1",
-    // "rollup-plugin-css-porter": "^1.0.2",
-    // "rollup-plugin-serve": "^1.0.1"
+## Router 추가
+[svelte-spa-router](https://github.com/ItalyPaleAle/svelte-spa-router): Svelte3 전용이며 SPA에 최적화 되어있다.
+SEO 향상이 필요하다면 [SAPPER](https://sapper.svelte.dev/)로 접근한다.
+
+SPA와 SSR 참고 문서 : 
+[SPA와 SSR의 장단점 그리고 Nuxt.js](https://medium.com/aha-official/%EC%95%84%ED%95%98-%ED%94%84%EB%A1%A0%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EA%B8%B0-1-spa%EC%99%80-ssr%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90-%EA%B7%B8%EB%A6%AC%EA%B3%A0-nuxt-js-cafdc3ac2053) 
+
+```
+$ npm i --save svelte-spa-router
+```
+
+## TODOLIIST
+- router ts Error Fixed

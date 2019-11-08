@@ -1,11 +1,6 @@
 <script lang="ts">
-	const text: string = 'svelte-typescript-rollup';
+	import Router from 'svelte-spa-router';
+	import routes from './routes';
 </script>
 
-<style>
-	h1 {
-		text-align: center;
-	}
-</style>
-
-<h1>{text}</h1>
+<Router {routes}/>

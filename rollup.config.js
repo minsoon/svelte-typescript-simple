@@ -8,6 +8,8 @@ import typescriptCompiler from "typescript";
 import rollup_start_dev from './rollup_start_dev';
 import sveltePreprocessor from "svelte-preprocess";
 
+const svelteOptions = require("./svelte.config");
+
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
@@ -20,6 +22,7 @@ export default {
 	},
 	plugins: [
 		svelte({
+			...svelteOptions,
 			// enable run-time checks when not in production
 			dev: !production,
 			// we'll extract any component CSS out into
