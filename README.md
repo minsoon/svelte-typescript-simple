@@ -52,3 +52,7 @@ $ npm i --save svelte-spa-router
 
 ## TODOLIST
 - router ts Error Fixed
+- SvelteGuide 페이지 작성
+- AWS API 연동
+- Build 체크
+- README 문서 정리
