@@ -1,13 +1,11 @@
-<script>
-	let title = 'Main';
+<script lang="ts">
+    import {link} from 'svelte-spa-router'
+    import Test from './test';
+    
+    const a: string = "Svelte",
+        b: string = "Typescript",
+        c: string = "Rollup";
+    console.log(Test);
 </script>
 
-<style>
-	.page {
-		text-align: center;
-	}
-</style>
-
-<div class="page">
-	<h1>{ title }</h1>
-</div>
+<h1><a href="/test" use:link>{a} + {b} + {c}</a></h1>
