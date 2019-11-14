@@ -27,7 +27,9 @@ $ npm run dev
 # package 추가 문서
 ### TypeScript
 초기 세팅부터 typescript 녹이다 삽질을 너무 많이함. 
+
 rollup설정을 제대로 했는데 ts import 시 파일을 찾질 못함...원인 못찾...
+
 결국 [여기서](https://github.com/dafn/svelte-typescript-rollup) 가져옴...
 ```
 $ npm i --save-dev rollup-plugin-typescript2
@@ -67,8 +69,12 @@ SPA, SSR 참고 문서 :
 $ npm i --save-dev svelte-spa-router
 ```
 
+
+
 ## TODOLIST
+- ~~Typesciprt 적용~~
 - ~~router ts Error Fixed~~
+- UI Framework 적용
 - SvelteGuide 페이지 작성
 - AWS API 연동
 - Build 체크
