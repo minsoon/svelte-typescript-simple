@@ -69,13 +69,39 @@ SPA, SSR 참고 문서 :
 $ npm i --save-dev svelte-spa-router
 ```
 
+#### UI Framework 'sveltestrap' 추가
 
+[svelte-material-ui](https://github.com/hperrin/svelte-material-ui)를 추가하려했으나 아직 TS를 지원하지 않아 적용하는데 번거로움. 간단한 UI만 필요하기때문에 부트스트랩에 녹인 [sveltestrap](https://github.com/bestguy/sveltestrap) 을 적용함.
+
+package.json
+```
+$ npm i --save bootstrap sveltestrap
+```
+App.svelte 또는 index.html css 추가
+```
+<svelte:head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</svelte:head>
+```
+
+---
 
 ## TODOLIST
 - ~~Typesciprt 적용~~
 - ~~router ts Error Fixed~~
-- UI Framework 적용
+- ~~UI Framework 적용~~
 - SvelteGuide 페이지 작성
 - AWS API 연동
 - Build 체크
 - README 문서 정리
+
+#### 모듈 import 
+ts 파일에서 모듈 import 할때 모듈을 찾지 못함: 파일 호환성 이슈
+
+차후 @type/* 업데이트 시 확인 필요.
+
+참고 문서 : [타입스크립트 컴파일러가 모듈 타입 선언을 참조하는 과정](https://medium.com/naver-fe-platform/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EA%B0%80-%EB%AA%A8%EB%93%88-%ED%83%80%EC%9E%85-%EC%84%A0%EC%96%B8%EC%9D%84-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95-5bfc55a88bb6)
+```
+import { warp } from 'svelte-spa-router';
+```
+
