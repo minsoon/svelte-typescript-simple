@@ -10,11 +10,12 @@ import { terser } from "rollup-plugin-terser"
 import livereload from "rollup-plugin-livereload"
 import sveltePreprocessor from "svelte-preprocess"
 
+
 const plugins = [
   svelte({
     dev: process.env.NODE_ENV === "development",
     extensions: [".svelte"],
-    preprocess: sveltePreprocessor(),
+    preprocess: sveltePreprocessor()
   }),
   html({
     template: "src/index.html",
