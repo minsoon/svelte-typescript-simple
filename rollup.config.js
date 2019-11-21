@@ -8,14 +8,22 @@ import typescript from "rollup-plugin-typescript2"
 import typescriptCompiler from "typescript"
 import { terser } from "rollup-plugin-terser"
 import livereload from "rollup-plugin-livereload"
-import sveltePreprocessor from "svelte-preprocess"
+import sveltePreprocess from 'svelte-preprocess'
 
+const preprocess = sveltePreprocess({
+  scss: {
+    includePaths: ['src'],
+  },
+  postcss: {
+    plugins: [require('autoprefixer')],
+  },
+});
 
 const plugins = [
   svelte({
     dev: process.env.NODE_ENV === "development",
     extensions: [".svelte"],
-    preprocess: sveltePreprocessor()
+    preprocess: preprocess
   }),
   html({
     template: "src/index.html",
@@ -34,7 +42,8 @@ if (process.env.NODE_ENV === "development") {
   plugins.push(
     serve({
       contentBase: './dist',
-      open: false
+      open: false,
+      preprocess
     }),
     livereload({ watch: "./dist" })
   );

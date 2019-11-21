@@ -83,6 +83,44 @@ App.svelte 또는 index.html css 추가
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </svelte:head>
 ```
+#### Css Sass 추가
+전에 분명 'svelte-preprocess' 가이드에 따라서 rollup.comfig에 추가했는데 scss가 안먹힘.
+
+구글 검색에서 [Svelte / Sapper with Sass!](https://medium.com/@sean_27490/svelte-sapper-with-sass-271fff662da9)문서를 보고 적용함.
+```
+npm i -D svelte-preprocess autoprefixer node-sass
+
+- style
+<style lang="scss"></style>
+
+- rollup.config.js
+const preprocess = sveltePreprocess({
+  scss: {
+    includePaths: ['src'],
+  },
+  postcss: {
+    plugins: [require('autoprefixer')],
+  },
+});
+...
+export default {
+  client: {
+    plugins: [
+      svelte({
+        // ...
+        preprocess, // <-- ADD THIS LINE
+      }),
+  },
+  server: {
+    plugins: [
+      svelte({
+       // ...
+        preprocess, // <-- HERE TOO
+      }),
+    ],
+  },
+};
+```
 
 ---
 
@@ -100,8 +138,9 @@ ts 파일에서 모듈 import 할때 모듈을 찾지 못함: 파일 호환성 �
 
 차후 @type/* 업데이트 시 확인 필요.
 
-참고 문서 : [타입스크립트 컴파일러가 모듈 타입 선언을 참조하는 과정](https://medium.com/naver-fe-platform/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EA%B0%80-%EB%AA%A8%EB%93%88-%ED%83%80%EC%9E%85-%EC%84%A0%EC%96%B8%EC%9D%84-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95-5bfc55a88bb6)
-```
-import { warp } from 'svelte-spa-router';
-```
+참고 문서 : 
+
+- [타입스크립트 컴파일러가 모듈 타입 선언을 참조하는 과정](https://medium.com/naver-fe-platform/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC%EA%B0%80-%EB%AA%A8%EB%93%88-%ED%83%80%EC%9E%85-%EC%84%A0%EC%96%B8%EC%9D%84-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95-5bfc55a88bb6)
+- [타입스크립트의 네임스페이스와 모듈
+](https://edykim.com/ko/post/namespaces-and-modules-in-type-scripts/)
 
